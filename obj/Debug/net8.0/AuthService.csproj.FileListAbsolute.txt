@@ -1,0 +1,8 @@
+C:\Users\calis\AuthService\obj\Debug\net8.0\AuthService.csproj.AssemblyReference.cache
+C:\Users\calis\AuthService\obj\Debug\net8.0\AuthService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\calis\AuthService\obj\Debug\net8.0\AuthService.AssemblyInfoInputs.cache
+C:\Users\calis\AuthService\obj\Debug\net8.0\AuthService.AssemblyInfo.cs
+C:\Users\calis\AuthService\obj\Debug\net8.0\AuthService.csproj.CoreCompileInputs.cache
+C:\Users\calis\AuthService\obj\Debug\net8.0\AuthService.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\calis\AuthService\obj\Debug\net8.0\AuthService.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\calis\AuthService\obj\Debug\net8.0\AuthService.sourcelink.json
