@@ -1,5 +1,5 @@
 public class LoginDto
 {
-    public string Username { get ; set ; }
-    public string Password { get; set; }
+    public string Kullanıcı_Adı { get ; set ; }
+    public string Sifre { get; set; }
 }

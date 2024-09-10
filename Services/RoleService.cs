@@ -11,7 +11,7 @@ public class RoleService
 
     public async Task AddRoleAsync(string roleName)
     {
-        var role = new Role { Name = roleName };
+        var role = new Role { Ad = roleName };
         _context.Roles.Add(role);
         await _context.SaveChangesAsync();
     }

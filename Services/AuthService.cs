@@ -18,19 +18,19 @@ public class AuthService
     public async Task<string> LoginAsync(LoginDto loginDto)
     {
         var user = await _context.Users
-            .SingleOrDefaultAsync(u => u.Username == loginDto.Username);
+            .SingleOrDefaultAsync(u => u.Kullanıcı_Adı == loginDto.Kullanıcı_Adı);
 
-        if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash))
+        if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Sifre, user.HashPassword))
             throw new Exception("Invalid credentials");
 
-        // Generate JWT
+        //  JWT OLUŞUMU
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(new Claim[]
             {
-                new Claim(ClaimTypes.Name, user.Username)
+                new Claim(ClaimTypes.Name, user.Kullanıcı_Adı)
             }),
             Expires = DateTime.UtcNow.AddHours(1),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

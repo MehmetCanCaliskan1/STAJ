@@ -10,9 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
   //void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
 {
     app.UseMiddleware<AuthMiddleware>();
-    // Diğer middleware'ler...
+   
 }
-  //void ConfigureServices(IServiceCollection services)
+  void ConfigureServices(IServiceCollection services)
 {
     services.AddDbContext<AppDbContext>(options =>
         options.UseOracle(Configuration.GetConnectionString("DefaultConnection")));

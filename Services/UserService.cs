@@ -11,24 +11,24 @@ public class UserService
 
     public async Task RegisterUserAsync(RegisterUserDto userDto)
     {
-        if (userDto.Password != userDto.ConfirmPassword)
+        if (userDto.Sifre != userDto.Tekrar_Sifre)
             throw new Exception("Passwords do not match.");
 
         var user = new User
         {
-            FirstName = userDto.FirstName,
-            LastName = userDto.LastName,
-            Username = userDto.Username,
+            Ad = userDto.Ad,
+            Soyad = userDto.Soyad,
+            Kullanıcı_Adı = userDto.Kullanıcı_Adı,
             Email = userDto.Email,
-            PhoneNumber = userDto.PhoneNumber,
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword(userDto.Password),
-            IsActive = false // Email verification needed
+            TelNo = userDto.TelNo,
+            HashPassword = BCrypt.Net.BCrypt.HashPassword(userDto.Sifre),
+            IsActive = false 
         };
 
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 
-        // Send verification email
+        
         _emailService.SendVerificationEmail(user.Email);
     }
 }
