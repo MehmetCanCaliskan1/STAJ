@@ -35,34 +35,29 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Dependency Injection for services
+
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<RoleService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddTransient<EmailService, EmailService>();
 
-// Swagger configuration
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 app.UseRouting();
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
-// Custom middleware
 app.UseMiddleware<AuthMiddleware>();
-
-// Map controllers
 app.MapControllers();
-
 app.Run();
